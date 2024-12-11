@@ -25,7 +25,6 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -83,16 +82,6 @@ Partial Class Form1
         Me.Button1.Text = "Add To Cart"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(585, 543)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(218, 107)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Remove from Cart"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.MenuHighlight
@@ -108,7 +97,7 @@ Partial Class Form1
         '
         Me.Button4.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(585, 543)
+        Me.Button4.Location = New System.Drawing.Point(589, 499)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(218, 107)
         Me.Button4.TabIndex = 3
@@ -319,7 +308,6 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView2)
@@ -340,7 +328,6 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents PictureBox1 As PictureBox
