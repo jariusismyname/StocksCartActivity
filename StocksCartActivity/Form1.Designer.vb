@@ -47,14 +47,16 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Labelordernumber = New System.Windows.Forms.Label()
+        Me.PanelOrder = New System.Windows.Forms.Panel()
+        Me.PanelOrderSuccess = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridViewItems_Stocks, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        Me.PanelOrder.SuspendLayout()
+        Me.PanelOrderSuccess.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridViewItems_Stocks
@@ -299,55 +301,68 @@ Partial Class Form1
         Me.Label10.TabIndex = 22
         Me.Label10.Text = "Order Number:"
         '
-        'Label11
+        'Labelordernumber
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(433, 93)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(161, 38)
-        Me.Label11.TabIndex = 23
-        Me.Label11.Text = "00000000"
+        Me.Labelordernumber.AutoSize = True
+        Me.Labelordernumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labelordernumber.Location = New System.Drawing.Point(433, 93)
+        Me.Labelordernumber.Name = "Labelordernumber"
+        Me.Labelordernumber.Size = New System.Drawing.Size(161, 38)
+        Me.Labelordernumber.TabIndex = 23
+        Me.Labelordernumber.Text = "00000000"
         '
-        'Panel1
+        'PanelOrder
         '
-        Me.Panel1.Controls.Add(Me.Label11)
-        Me.Panel1.Controls.Add(Me.Label10)
-        Me.Panel1.Controls.Add(Me.Button5)
-        Me.Panel1.Controls.Add(Me.TextBox6)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.TextBox5)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.TextBox4)
-        Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.TextBox3)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.TextBox2)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.PictureBox2)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.DataGridView2)
-        Me.Panel1.Controls.Add(Me.DataGridViewItems_Stocks)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1151, 676)
-        Me.Panel1.TabIndex = 24
+        Me.PanelOrder.Controls.Add(Me.Labelordernumber)
+        Me.PanelOrder.Controls.Add(Me.Label10)
+        Me.PanelOrder.Controls.Add(Me.Button5)
+        Me.PanelOrder.Controls.Add(Me.TextBox6)
+        Me.PanelOrder.Controls.Add(Me.Label9)
+        Me.PanelOrder.Controls.Add(Me.TextBox5)
+        Me.PanelOrder.Controls.Add(Me.Label8)
+        Me.PanelOrder.Controls.Add(Me.TextBox4)
+        Me.PanelOrder.Controls.Add(Me.Label7)
+        Me.PanelOrder.Controls.Add(Me.TextBox3)
+        Me.PanelOrder.Controls.Add(Me.Label6)
+        Me.PanelOrder.Controls.Add(Me.TextBox2)
+        Me.PanelOrder.Controls.Add(Me.Label5)
+        Me.PanelOrder.Controls.Add(Me.Label4)
+        Me.PanelOrder.Controls.Add(Me.Label3)
+        Me.PanelOrder.Controls.Add(Me.Label2)
+        Me.PanelOrder.Controls.Add(Me.Label1)
+        Me.PanelOrder.Controls.Add(Me.TextBox1)
+        Me.PanelOrder.Controls.Add(Me.PictureBox2)
+        Me.PanelOrder.Controls.Add(Me.PictureBox1)
+        Me.PanelOrder.Controls.Add(Me.Button4)
+        Me.PanelOrder.Controls.Add(Me.Button3)
+        Me.PanelOrder.Controls.Add(Me.Button1)
+        Me.PanelOrder.Controls.Add(Me.DataGridView2)
+        Me.PanelOrder.Controls.Add(Me.DataGridViewItems_Stocks)
+        Me.PanelOrder.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelOrder.Location = New System.Drawing.Point(0, 0)
+        Me.PanelOrder.Name = "PanelOrder"
+        Me.PanelOrder.Size = New System.Drawing.Size(1151, 676)
+        Me.PanelOrder.TabIndex = 24
         '
-        'Panel2
+        'PanelOrderSuccess
         '
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(309, 215)
-        Me.Panel2.TabIndex = 24
+        Me.PanelOrderSuccess.Controls.Add(Me.Button2)
+        Me.PanelOrderSuccess.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelOrderSuccess.Location = New System.Drawing.Point(0, 0)
+        Me.PanelOrderSuccess.Name = "PanelOrderSuccess"
+        Me.PanelOrderSuccess.Size = New System.Drawing.Size(1151, 676)
+        Me.PanelOrderSuccess.TabIndex = 24
+        Me.PanelOrderSuccess.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(266, 342)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(345, 104)
+        Me.Button2.TabIndex = 0
+        Me.Button2.Text = "Order Again"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -355,8 +370,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1151, 676)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PanelOrderSuccess)
+        Me.Controls.Add(Me.PanelOrder)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -365,8 +380,9 @@ Partial Class Form1
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.PanelOrder.ResumeLayout(False)
+        Me.PanelOrder.PerformLayout()
+        Me.PanelOrderSuccess.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -395,7 +411,8 @@ Partial Class Form1
     Friend WithEvents Label9 As Label
     Friend WithEvents Button5 As Button
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Labelordernumber As Label
+    Friend WithEvents PanelOrder As Panel
+    Friend WithEvents PanelOrderSuccess As Panel
+    Friend WithEvents Button2 As Button
 End Class
