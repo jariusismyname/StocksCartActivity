@@ -24,13 +24,13 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.DataGridViewItems_Stocks = New System.Windows.Forms.DataGridView()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewItems_Cart = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBoxQuantity = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -52,7 +52,7 @@ Partial Class Form1
         Me.PanelOrderSuccess = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridViewItems_Stocks, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewItems_Cart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelOrder.SuspendLayout()
@@ -71,14 +71,14 @@ Partial Class Form1
         Me.DataGridViewItems_Stocks.Size = New System.Drawing.Size(326, 221)
         Me.DataGridViewItems_Stocks.TabIndex = 0
         '
-        'DataGridView2
+        'DataGridViewItems_Cart
         '
-        Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(471, 201)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(336, 221)
-        Me.DataGridView2.TabIndex = 1
+        Me.DataGridViewItems_Cart.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DataGridViewItems_Cart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewItems_Cart.Location = New System.Drawing.Point(471, 201)
+        Me.DataGridViewItems_Cart.Name = "DataGridViewItems_Cart"
+        Me.DataGridViewItems_Cart.Size = New System.Drawing.Size(336, 221)
+        Me.DataGridViewItems_Cart.TabIndex = 1
         '
         'Button1
         '
@@ -132,13 +132,13 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'TextBox1
+        'TextBoxQuantity
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 39.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(28, 480)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(326, 67)
-        Me.TextBox1.TabIndex = 6
+        Me.TextBoxQuantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 39.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxQuantity.Location = New System.Drawing.Point(28, 480)
+        Me.TextBoxQuantity.Name = "TextBoxQuantity"
+        Me.TextBoxQuantity.Size = New System.Drawing.Size(326, 67)
+        Me.TextBoxQuantity.TabIndex = 6
         '
         'Label1
         '
@@ -330,13 +330,13 @@ Partial Class Form1
         Me.PanelOrder.Controls.Add(Me.Label3)
         Me.PanelOrder.Controls.Add(Me.Label2)
         Me.PanelOrder.Controls.Add(Me.Label1)
-        Me.PanelOrder.Controls.Add(Me.TextBox1)
+        Me.PanelOrder.Controls.Add(Me.TextBoxQuantity)
         Me.PanelOrder.Controls.Add(Me.PictureBox2)
         Me.PanelOrder.Controls.Add(Me.PictureBox1)
         Me.PanelOrder.Controls.Add(Me.Button4)
         Me.PanelOrder.Controls.Add(Me.Button3)
         Me.PanelOrder.Controls.Add(Me.Button1)
-        Me.PanelOrder.Controls.Add(Me.DataGridView2)
+        Me.PanelOrder.Controls.Add(Me.DataGridViewItems_Cart)
         Me.PanelOrder.Controls.Add(Me.DataGridViewItems_Stocks)
         Me.PanelOrder.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelOrder.Location = New System.Drawing.Point(0, 0)
@@ -357,7 +357,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(266, 342)
+        Me.Button2.Location = New System.Drawing.Point(386, 331)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(345, 104)
         Me.Button2.TabIndex = 0
@@ -370,14 +370,14 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1151, 676)
-        Me.Controls.Add(Me.PanelOrderSuccess)
         Me.Controls.Add(Me.PanelOrder)
+        Me.Controls.Add(Me.PanelOrderSuccess)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.DataGridViewItems_Stocks, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewItems_Cart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelOrder.ResumeLayout(False)
@@ -388,13 +388,13 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents DataGridViewItems_Stocks As DataGridView
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridViewItems_Cart As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxQuantity As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
