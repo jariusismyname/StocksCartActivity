@@ -370,8 +370,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1151, 676)
-        Me.Controls.Add(Me.PanelOrder)
         Me.Controls.Add(Me.PanelOrderSuccess)
+        Me.Controls.Add(Me.PanelOrder)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

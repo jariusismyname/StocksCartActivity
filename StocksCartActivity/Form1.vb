@@ -44,6 +44,7 @@ Public Class Form1
     ' Call this method when the form loads or when you want to refresh the DataGridView
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadItemsStocks()
+        SetupCartDataGridView()
     End Sub
     Private Sub TransferToCart()
         ' Ensure a row is selected in DatagridviewItems_Stocks
@@ -76,6 +77,12 @@ Public Class Form1
         Dim orderNumber As String = Labelordernumber.Text
 
         ' Add the selected product to DatagridviewItems_Cart
+        If DataGridViewItems_Cart.Columns.Count = 0 Then
+            SetupCartDataGridView()
+        End If
+
+        ' Transfer logic as before
+        ' Add rows to the DataGridView
         DataGridViewItems_Cart.Rows.Add(Nothing, productCode, productName, transferQuantity, price, orderNumber)
 
         ' Update the stock quantity
@@ -115,20 +122,75 @@ Public Class Form1
             End Try
         End Using
     End Sub
+    Private Sub PopulateDataGridViewItems_Cart()
+        ' Ensure the label has a valid Order_Number
+        If String.IsNullOrWhiteSpace(Labelordernumber.Text) Then
+            MessageBox.Show("Order Number is empty. Cannot populate cart.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        Dim orderNumber As String = Labelordernumber.Text
+
+        ' Database connection string
+        'Dim connectionString As String = "Your Connection String Here"
+
+        Try
+            Using conn As New SqlConnection(connectionString)
+                conn.Open()
+
+                ' SQL query to fetch data matching the Order_Number
+                Dim query As String = "SELECT CartId, Product_Codes, Name_of_Product, Quantity, Price, Order_Number " &
+                                  "FROM Items_Cart WHERE Order_Number = @OrderNumber"
+
+                Using cmd As New SqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@OrderNumber", orderNumber)
+
+                    ' Use SqlDataAdapter to fill the DataGridView
+                    Dim adapter As New SqlDataAdapter(cmd)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+
+                    ' Bind the DataTable to the DataGridView
+                    DataGridViewItems_Cart.DataSource = dataTable
+                End Using
+            End Using
+
+            MessageBox.Show("Cart populated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         PanelOrderSuccess.Visible = True
+        PanelOrder.Visible = False
+        'PopulateDataGridViewItems_Cart()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         GenerateOrderNumber()
+        'PopulateDataGridViewItems_Cart()
+        SetupCartDataGridView()
         PanelOrder.Visible = True
         PanelOrderSuccess.Visible = False
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
         TransferToCart()
+        'PopulateDataGridViewItems_Cart()
     End Sub
+    Private Sub SetupCartDataGridView()
+        With DataGridViewItems_Cart
+            .Columns.Clear()
+            .Columns.Add("CartId", "Cart ID")
+            .Columns.Add("Product_Codes", "Product Code")
+            .Columns.Add("Name_of_Product", "Product Name")
+            .Columns.Add("Quantity", "Quantity")
+            .Columns.Add("Price", "Price")
+            .Columns.Add("Order_Number", "Order Number")
+        End With
+    End Sub
+
 End Class

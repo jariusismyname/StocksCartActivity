@@ -13,4 +13,4 @@ Items_Stocks
 Products_Codes
 Name_of_Product
 Quantity
-Price
+Pric
