@@ -1,3 +1,10 @@
+Items_Stocks
+Product_Codes
+Name_of_Product
+Quantity
+Price
+
+
 Items_Cart
 CartId
 Product_Codes
@@ -9,8 +16,20 @@ Order_Number
 
 
 
-Items_Stocks
-Products_Codes
+
+
+
+Transactions
+
+TransactionId
+Product_Codes
 Name_of_Product
 Quantity
-Pric
+Price
+Order_Number
+Total
+Tax
+Discount
+Grand Total
+Payment
+Change

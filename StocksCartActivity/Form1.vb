@@ -164,6 +164,7 @@ Public Class Form1
 
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        SaveTransactionData()
         PanelOrderSuccess.Visible = True
         PanelOrder.Visible = False
         'PopulateDataGridViewItems_Cart()
@@ -227,6 +228,56 @@ Public Class Form1
             labelmessage.text = "Please make payment higher."
         End If
     End Sub
+    Private Sub SaveTransactionData()
+        ' Connection string to your MSSQL database
+        'Dim connectionString As String = "Data Source=YOUR_SERVER;Initial Catalog=YOUR_DATABASE;Integrated Security=True"
+
+        ' SQL Query to insert data into Transactions table
+        Dim query As String = "INSERT INTO Transactions 
+                           (Product_Codes, Name_of_Product, Quantity, Price, Order_Number, Total, Tax, Discount, Grand_Total, Payment, Change)
+                           VALUES (@Product_Codes, @Name_of_Product, @Quantity, @Price, @Order_Number, @Total, @Tax, @Discount, @Grand_Total, @Payment, @Change)"
+
+        Using conn As New SqlConnection(connectionString)
+            conn.Open()
+
+            Using transaction As SqlTransaction = conn.BeginTransaction()
+                Try
+                    For Each row As DataGridViewRow In DataGridViewItems_Cart.Rows
+                        If Not row.IsNewRow Then
+                            Using cmd As New SqlCommand(query, conn, transaction)
+                                ' Bind parameters for DataGridView rows
+                                cmd.Parameters.AddWithValue("@Product_Codes", row.Cells("Product_Codes").Value.ToString())
+                                cmd.Parameters.AddWithValue("@Name_of_Product", row.Cells("Name_of_Product").Value.ToString())
+                                cmd.Parameters.AddWithValue("@Quantity", Convert.ToInt32(row.Cells("Quantity").Value))
+                                cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells("Price").Value))
+                                cmd.Parameters.AddWithValue("@Order_Number", row.Cells("Order_Number").Value.ToString())
+
+                                ' Bind parameters for TextBox values
+                                cmd.Parameters.AddWithValue("@Total", Convert.ToDecimal(txttotal.Text))
+                                cmd.Parameters.AddWithValue("@Tax", Convert.ToDecimal(txttax.Text))
+                                cmd.Parameters.AddWithValue("@Discount", Convert.ToDecimal(txtdiscount.Text))
+                                cmd.Parameters.AddWithValue("@Grand_Total", Convert.ToDecimal(txtgrandtotal.Text))
+                                cmd.Parameters.AddWithValue("@Payment", Convert.ToDecimal(txtpayment.Text))
+                                cmd.Parameters.AddWithValue("@Change", Convert.ToDecimal(txtchange.Text))
+
+                                ' Execute the query
+                                cmd.ExecuteNonQuery()
+                            End Using
+                        End If
+                    Next
+
+                    ' Commit the transaction
+                    transaction.Commit()
+                    MessageBox.Show("Transaction data has been successfully saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Catch ex As Exception
+                    ' Rollback the transaction in case of an error
+                    transaction.Rollback()
+                    MessageBox.Show("An error occurred while saving transaction data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End Using
+        End Using
+    End Sub
+
     Private Sub DataGridViewItems_Cart_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewItems_Cart.CellValueChanged
         ComputeTotals()
     End Sub
@@ -247,7 +298,7 @@ Public Class Form1
         With DataGridViewItems_Cart
             .Columns.Clear()
             .Columns.Add("CartId", "Cart ID")
-            .Columns.Add("Product_Codes", "Product Code")
+            .Columns.Add("Product_Codes", "Product Codes")
             .Columns.Add("Name_of_Product", "Product Name")
             .Columns.Add("Quantity", "Quantity")
             .Columns.Add("Price", "Price")
