@@ -176,6 +176,68 @@ Public Class Form1
         PanelOrder.Visible = True
         PanelOrderSuccess.Visible = False
     End Sub
+    Private Sub ComputeTotals()
+        ' Initialize variables
+        Dim total As Decimal = 0
+        Dim discount As Decimal = 0
+        Dim tax As Decimal = 0
+        Dim grandTotal As Decimal = 0
+        Dim payment As Decimal = 0
+        Dim change As Decimal = 0
+
+        ' Calculate Total from DataGridView
+        For Each row As DataGridViewRow In DataGridViewItems_Cart.Rows
+            If Not row.IsNewRow Then
+                Dim price As Decimal = Convert.ToDecimal(row.Cells("Price").Value)
+                Dim quantity As Integer = Convert.ToInt32(row.Cells("Quantity").Value)
+                total += price * quantity
+            End If
+        Next
+
+        ' Display Total in txtTotal
+        txtTotal.Text = total.ToString("F2")
+
+        ' Calculate Discount
+        If CheckBoxDiscount.Checked Then
+            discount = total * 0.2D
+        Else
+            discount = 0
+        End If
+        txtDiscount.Text = discount.ToString("F2")
+
+        ' Calculate Tax
+        tax = total * 0.12D
+        txtTax.Text = tax.ToString("F2")
+
+        ' Calculate Grand Total
+        grandTotal = total - discount
+        txtGrandTotal.Text = grandTotal.ToString("F2")
+
+        ' Validate Payment
+        If Decimal.TryParse(txtPayment.Text, payment) AndAlso payment >= grandTotal Then
+            ' Calculate Change
+            change = payment - grandTotal
+            txtchange.Text = change.ToString("F2")
+            'receipt.show
+            Labelmessage.Text = "Welcome, you  can buy anything."
+
+        Else
+            'MessageBox.Show("Payment must be greater than or equal to the Grand Total.", "Invalid Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtchange.Text = "0.00"
+            labelmessage.text = "Please make payment higher."
+        End If
+    End Sub
+    Private Sub DataGridViewItems_Cart_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewItems_Cart.CellValueChanged
+        ComputeTotals()
+    End Sub
+
+    Private Sub CheckBoxDiscount_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxDiscount.CheckedChanged
+        ComputeTotals()
+    End Sub
+
+    Private Sub txtPayment_TextChanged(sender As Object, e As EventArgs) Handles txtPayment.TextChanged
+        ComputeTotals()
+    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         TransferToCart()

@@ -36,14 +36,13 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.txtdiscount = New System.Windows.Forms.TextBox()
+        Me.txtgrandtotal = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtpayment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtchange = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -51,6 +50,10 @@ Partial Class Form1
         Me.PanelOrder = New System.Windows.Forms.Panel()
         Me.PanelOrderSuccess = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.txttax = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CheckBoxdiscount = New System.Windows.Forms.CheckBox()
+        Me.Labelmessage = New System.Windows.Forms.Label()
         CType(Me.DataGridViewItems_Stocks, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewItems_Cart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,7 +177,7 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Monotype Corsiva", 50.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(176, 9)
+        Me.Label4.Location = New System.Drawing.Point(187, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(392, 82)
         Me.Label4.TabIndex = 10
@@ -184,91 +187,81 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(839, 52)
+        Me.Label5.Location = New System.Drawing.Point(839, 14)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(89, 38)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Total"
         '
-        'TextBox2
+        'txttotal
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox2.Location = New System.Drawing.Point(846, 93)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(293, 53)
-        Me.TextBox2.TabIndex = 12
-        Me.TextBox2.Text = "Total"
+        Me.txttotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotal.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txttotal.Location = New System.Drawing.Point(846, 55)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.Size = New System.Drawing.Size(293, 53)
+        Me.txttotal.TabIndex = 12
+        Me.txttotal.Text = "0"
         '
-        'TextBox3
+        'txtdiscount
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox3.Location = New System.Drawing.Point(846, 218)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(293, 53)
-        Me.TextBox3.TabIndex = 14
-        Me.TextBox3.Text = "Discount"
+        Me.txtdiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtdiscount.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txtdiscount.Location = New System.Drawing.Point(845, 251)
+        Me.txtdiscount.Name = "txtdiscount"
+        Me.txtdiscount.Size = New System.Drawing.Size(293, 53)
+        Me.txtdiscount.TabIndex = 14
+        Me.txtdiscount.Text = "0"
         '
-        'Label6
+        'txtgrandtotal
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(839, 177)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(145, 38)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Discount"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox4.Location = New System.Drawing.Point(846, 333)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(293, 53)
-        Me.TextBox4.TabIndex = 16
-        Me.TextBox4.Text = "Grand Total"
+        Me.txtgrandtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtgrandtotal.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txtgrandtotal.Location = New System.Drawing.Point(845, 364)
+        Me.txtgrandtotal.Name = "txtgrandtotal"
+        Me.txtgrandtotal.Size = New System.Drawing.Size(293, 53)
+        Me.txtgrandtotal.TabIndex = 16
+        Me.txtgrandtotal.Text = "0"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(839, 408)
+        Me.Label7.Location = New System.Drawing.Point(838, 439)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(146, 38)
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "Payment"
         '
-        'TextBox5
+        'txtpayment
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox5.Location = New System.Drawing.Point(846, 449)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(293, 53)
-        Me.TextBox5.TabIndex = 18
-        Me.TextBox5.Text = "Payment"
+        Me.txtpayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpayment.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txtpayment.Location = New System.Drawing.Point(845, 480)
+        Me.txtpayment.Name = "txtpayment"
+        Me.txtpayment.Size = New System.Drawing.Size(293, 53)
+        Me.txtpayment.TabIndex = 18
+        Me.txtpayment.Text = "0"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(839, 292)
+        Me.Label8.Location = New System.Drawing.Point(838, 323)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(189, 38)
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Grand Total"
         '
-        'TextBox6
+        'txtchange
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox6.Location = New System.Drawing.Point(846, 576)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(293, 53)
-        Me.TextBox6.TabIndex = 20
-        Me.TextBox6.Text = "Change"
+        Me.txtchange.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtchange.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txtchange.Location = New System.Drawing.Point(846, 576)
+        Me.txtchange.Name = "txtchange"
+        Me.txtchange.Size = New System.Drawing.Size(293, 53)
+        Me.txtchange.TabIndex = 20
+        Me.txtchange.Text = "0"
         '
         'Label9
         '
@@ -295,7 +288,7 @@ Partial Class Form1
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(163, 93)
+        Me.Label10.Location = New System.Drawing.Point(157, 82)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(235, 38)
         Me.Label10.TabIndex = 22
@@ -305,7 +298,7 @@ Partial Class Form1
         '
         Me.Labelordernumber.AutoSize = True
         Me.Labelordernumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labelordernumber.Location = New System.Drawing.Point(433, 93)
+        Me.Labelordernumber.Location = New System.Drawing.Point(418, 82)
         Me.Labelordernumber.Name = "Labelordernumber"
         Me.Labelordernumber.Size = New System.Drawing.Size(161, 38)
         Me.Labelordernumber.TabIndex = 23
@@ -313,18 +306,21 @@ Partial Class Form1
         '
         'PanelOrder
         '
+        Me.PanelOrder.Controls.Add(Me.Labelmessage)
+        Me.PanelOrder.Controls.Add(Me.CheckBoxdiscount)
+        Me.PanelOrder.Controls.Add(Me.txttax)
+        Me.PanelOrder.Controls.Add(Me.Label11)
         Me.PanelOrder.Controls.Add(Me.Labelordernumber)
         Me.PanelOrder.Controls.Add(Me.Label10)
         Me.PanelOrder.Controls.Add(Me.Button5)
-        Me.PanelOrder.Controls.Add(Me.TextBox6)
+        Me.PanelOrder.Controls.Add(Me.txtchange)
         Me.PanelOrder.Controls.Add(Me.Label9)
-        Me.PanelOrder.Controls.Add(Me.TextBox5)
+        Me.PanelOrder.Controls.Add(Me.txtpayment)
         Me.PanelOrder.Controls.Add(Me.Label8)
-        Me.PanelOrder.Controls.Add(Me.TextBox4)
+        Me.PanelOrder.Controls.Add(Me.txtgrandtotal)
         Me.PanelOrder.Controls.Add(Me.Label7)
-        Me.PanelOrder.Controls.Add(Me.TextBox3)
-        Me.PanelOrder.Controls.Add(Me.Label6)
-        Me.PanelOrder.Controls.Add(Me.TextBox2)
+        Me.PanelOrder.Controls.Add(Me.txtdiscount)
+        Me.PanelOrder.Controls.Add(Me.txttotal)
         Me.PanelOrder.Controls.Add(Me.Label5)
         Me.PanelOrder.Controls.Add(Me.Label4)
         Me.PanelOrder.Controls.Add(Me.Label3)
@@ -364,14 +360,55 @@ Partial Class Form1
         Me.Button2.Text = "Order Again"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'txttax
+        '
+        Me.txttax.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttax.ForeColor = System.Drawing.SystemColors.ScrollBar
+        Me.txttax.Location = New System.Drawing.Point(846, 152)
+        Me.txttax.Name = "txttax"
+        Me.txttax.Size = New System.Drawing.Size(293, 53)
+        Me.txttax.TabIndex = 25
+        Me.txttax.Text = "0"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(839, 111)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(72, 38)
+        Me.Label11.TabIndex = 24
+        Me.Label11.Text = "Tax"
+        '
+        'CheckBoxdiscount
+        '
+        Me.CheckBoxdiscount.AutoSize = True
+        Me.CheckBoxdiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBoxdiscount.Location = New System.Drawing.Point(845, 210)
+        Me.CheckBoxdiscount.Name = "CheckBoxdiscount"
+        Me.CheckBoxdiscount.Size = New System.Drawing.Size(140, 35)
+        Me.CheckBoxdiscount.TabIndex = 26
+        Me.CheckBoxdiscount.Text = "Discount"
+        Me.CheckBoxdiscount.UseVisualStyleBackColor = True
+        '
+        'Labelmessage
+        '
+        Me.Labelmessage.AutoSize = True
+        Me.Labelmessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labelmessage.Location = New System.Drawing.Point(292, 120)
+        Me.Labelmessage.Name = "Labelmessage"
+        Me.Labelmessage.Size = New System.Drawing.Size(153, 38)
+        Me.Labelmessage.TabIndex = 27
+        Me.Labelmessage.Text = "Welcome"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1151, 676)
-        Me.Controls.Add(Me.PanelOrderSuccess)
         Me.Controls.Add(Me.PanelOrder)
+        Me.Controls.Add(Me.PanelOrderSuccess)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -400,14 +437,13 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txttotal As TextBox
+    Friend WithEvents txtdiscount As TextBox
+    Friend WithEvents txtgrandtotal As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtpayment As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtchange As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Button5 As Button
     Friend WithEvents Label10 As Label
@@ -415,4 +451,8 @@ Partial Class Form1
     Friend WithEvents PanelOrder As Panel
     Friend WithEvents PanelOrderSuccess As Panel
     Friend WithEvents Button2 As Button
+    Friend WithEvents txttax As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents CheckBoxdiscount As CheckBox
+    Friend WithEvents Labelmessage As Label
 End Class
